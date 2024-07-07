@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+
+# Data
+data/output_csv/
+data/anonymized_output_csv/
+
+# PySpark
+metastore_db/
+spark-warehouse/
+derby.log
+
+# Unit test / coverage reports
+.pytest_cache/

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  spark:
+    build:
+      context: .
+    container_name: data-processing-container
+    volumes:
+      - ./data:/app/data
+    environment:
+      - PYSPARK_PYTHON=python3.9
+      - PYSPARK_DRIVER_PYTHON=python3.9
+    command: >
+      bash -c "
+      spark-submit 
+      --conf spark.executor.memory=2g 
+      --conf spark.executor.cores=2 
+      --conf spark.driver.memory=1g 
+      --conf spark.driver.cores=1 
+      --conf spark.default.parallelism=4 
+      --conf spark.sql.shuffle.partitions=4 
+      /app/data_processing/generate_data.py 
+      && spark-submit 
+      --conf spark.executor.memory=2g 
+      --conf spark.executor.cores=2 
+      --conf spark.driver.memory=1g 
+      --conf spark.driver.cores=1 
+      --conf spark.default.parallelism=4 
+      --conf spark.sql.shuffle.partitions=4 
+      /app/data_processing/anonymize_data.py 
+      && python3 -m unittest discover -s /app/tests"
