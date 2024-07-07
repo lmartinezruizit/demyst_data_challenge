@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "fixed-width-parser"
+version = "0.1.0"
+description = "Problem 1: Parse fixed width file"
+authors = ["Luis Martinez <lmartinezruizit@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

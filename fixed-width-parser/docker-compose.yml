@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  parser:
+    build:
+      context: .
+    container_name: fixed-width-parser
+    volumes:
+      - ./data:/app/data
+    command: ["parse"]
+
+  test:
+    build:
+      context: .
+    container_name: fixed-width-parser-test
+    volumes:
+      - ./data:/app/data
+    command: ["test"]
+
+volumes:
+  app_data:

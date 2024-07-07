@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Poetry specific
+poetry.lock
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Data and test files
+data/output.csv
+data/test_data.txt
+data/test_output.csv
